@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pzu=g6m1ew-(lr(z7yrvses$mlzlpfc^+(v&ni6#t!1#hx_5zw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'intern-manager-86sw.onrender.com',
@@ -91,16 +91,16 @@ WSGI_APPLICATION = 'creditmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'creditmanager',
-        'USER' : 'creditmanager_user',
-        'PASSWORD' : '56FOZpNLbZSmVSuCUbwVziRiFayzvSCm',
+        'NAME': 'intern-manager-web-app-database',
+        'USER' : 'ygyqfscwec',
+        'PASSWORD' : 'ENU5Q0EC7UUP8707$',
         'HOST' : 'dpg-cmnmvhla73kc73avovj0-a',
         'PORT' : '5432',
     }
 }
-import dj_database_url
-DATABASE_URL = "postgres://creditmanager_user:56FOZpNLbZSmVSuCUbwVziRiFayzvSCm@dpg-cmnmvhla73kc73avovj0-a.singapore-postgres.render.com/creditmanager"
-DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
+# import dj_database_url
+# DATABASE_URL = "postgres://creditmanager_user:56FOZpNLbZSmVSuCUbwVziRiFayzvSCm@dpg-cmnmvhla73kc73avovj0-a.singapore-postgres.render.com/creditmanager"
+# DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
 
 
 # Password validation
