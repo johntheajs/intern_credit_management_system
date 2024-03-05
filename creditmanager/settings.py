@@ -27,9 +27,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'intern-manager-86sw.onrender.com',
+    'intern-manger-web-app.azurewebsites.net',
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://intern-manager-86sw.onrender.com',    
+    'https://intern-manager-86sw.onrender.com',
+    'https://intern-manger-web-app.azurewebsites.net',
     # Add other trusted origins as needed
 ]
 
