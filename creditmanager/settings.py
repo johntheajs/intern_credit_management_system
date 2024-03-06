@@ -89,15 +89,15 @@ WSGI_APPLICATION = 'creditmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'intern_manager_db_7nwf',
-        'USER' : 'intern_manager_db_7nwf_user',
-        'PASSWORD' : 'BOsKU8YasJirtgxIGru4dCeOlJJq3A3z',
-        'HOST' : 'dpg-cnjlhc7sc6pc73fs0hi0-a',
+        'NAME': 'intern_manager_database',
+        'USER' : 'intern_manager_database_user',
+        'PASSWORD' : 'GEtN9aFsIQAGySzaHWysf8RsrZ3jzBkT',
+        'HOST' : 'dpg-cnk42aq1hbls739rcoug-a',
         'PORT' : '5432',
     }
 }
 import dj_database_url
-DATABASE_URL = "postgres://intern_manager_db_7nwf_user:BOsKU8YasJirtgxIGru4dCeOlJJq3A3z@dpg-cnjlhc7sc6pc73fs0hi0-a/intern_manager_db_7nwf"
+DATABASE_URL = "postgres://intern_manager_database_user:GEtN9aFsIQAGySzaHWysf8RsrZ3jzBkT@dpg-cnk42aq1hbls739rcoug-a.oregon-postgres.render.com/intern_manager_database"
 DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
 
 
