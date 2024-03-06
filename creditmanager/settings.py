@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 
     'users.apps.UsersConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -89,16 +90,16 @@ WSGI_APPLICATION = 'creditmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'intern_manager_database',
-        'USER' : 'intern_manager_database_user',
-        'PASSWORD' : 'GEtN9aFsIQAGySzaHWysf8RsrZ3jzBkT',
-        'HOST' : 'dpg-cnk42aq1hbls739rcoug-a',
+        'NAME': 'internmanager',
+        'USER' : 'AdminIntern',
+        'PASSWORD' : 'r8wHpHhCcDLHKsAg4uNk',
+        'HOST' : 'intern-manager-db.c7gkeo82emnv.ap-southeast-2.rds.amazonaws.com',
         'PORT' : '5432',
     }
 }
-import dj_database_url
-DATABASE_URL = "postgres://intern_manager_database_user:GEtN9aFsIQAGySzaHWysf8RsrZ3jzBkT@dpg-cnk42aq1hbls739rcoug-a.oregon-postgres.render.com/intern_manager_database"
-DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
+# import dj_database_url
+# DATABASE_URL = "intern-manager-db.c7gkeo82emnv.ap-southeast-2.rds.amazonaws.com"
+# DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -145,19 +146,28 @@ EMAIL_HOST_PASSWORD = 'lzllchsaycesnwma'
 
 
 STATIC_URL = 'static/'
-DEFAULT_FILE_STORAGE = 'gdstorage.storage.GoogleDriveStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'django-intern.json')
-GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '/Industry Intern Credits 2024/'  # Folder path in your Google Drive where files will be stored
+# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = os.path.join(BASE_DIR, 'django-intern.json')
+# GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = '/Industry Intern Credits 2024/'  # Folder path in your Google Drive where files will be stored
 
+STATICFILES_STORAGE= 'storages.backends.s3boto3.S3StaticStorage'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/files')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_ACCESS_KEY_ID = 'AKIAWS4X3RGXTBZ5HR6V'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'intern-manager-bucket'

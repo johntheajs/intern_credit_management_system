@@ -3,13 +3,7 @@ from django.contrib.auth.models import User
 import uuid
 from django.core.validators import FileExtensionValidator
 from django.core.validators import MaxValueValidator
-import os
-from gdstorage.storage import GoogleDriveStorage
 
-# Define Google Drive Storage
-gd_storage = GoogleDriveStorage()
-
-# Create your models here.
 
 
 
@@ -37,9 +31,9 @@ class Intern(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     reviewed = models.BooleanField(default=False)
     accepted = models.BooleanField(default=False)
-    certificate = models.FileField(upload_to='certificate/', storage=gd_storage,  validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
-    permission = models.FileField(upload_to='permission/', storage=gd_storage, validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
-    report = models.FileField(upload_to='report/', storage=gd_storage, validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
+    certificate = models.FileField(upload_to='certificate/', validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
+    permission = models.FileField(upload_to='permission/', validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
+    report = models.FileField(upload_to='report/', validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
     creditsrewarded = models.IntegerField(default=0)
     submissiondate = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
