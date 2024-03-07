@@ -90,16 +90,16 @@ WSGI_APPLICATION = 'creditmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'creditmanager',
-        'USER' : 'creditmanager_user',
-        'PASSWORD' : '56FOZpNLbZSmVSuCUbwVziRiFayzvSCm',
-        'HOST' : 'dpg-cmnmvhla73kc73avovj0-a',
+        'NAME': 'internManager',
+        'USER' : 'intern',
+        'PASSWORD' : 'ajMZHAP4PBhuBiE4c6W5',
+        'HOST' : 'intern-manager.c7gkeo82emnv.ap-southeast-2.rds.amazonaws.com',
         'PORT' : '5432',
     }
 }
-import dj_database_url
-DATABASE_URL = "postgres://creditmanager_user:56FOZpNLbZSmVSuCUbwVziRiFayzvSCm@dpg-cmnmvhla73kc73avovj0-a.singapore-postgres.render.com/creditmanager"
-DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
+# import dj_database_url
+# DATABASE_URL = "postgres://creditmanager_user:56FOZpNLbZSmVSuCUbwVziRiFayzvSCm@dpg-cmnmvhla73kc73avovj0-a.singapore-postgres.render.com/creditmanager"
+# DATABASES['default'] = dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True)
 
 
 # Password validation
