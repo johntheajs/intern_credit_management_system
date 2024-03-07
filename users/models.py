@@ -38,16 +38,7 @@ class Intern(models.Model):
     submissiondate = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
-    def delete(self, *args, **kwargs):
-        # Delete associated files from Google Cloud Storage before deleting the Intern instance
-        if self.certificate:
-            gd_storage.delete(self.certificate.name)
-        if self.permission:
-            gd_storage.delete(self.permission.name)
-        if self.report:
-            gd_storage.delete(self.report.name)
-
-        super().delete(*args, **kwargs)
+   
 
     def __str__(self):
         return str(self.name)
