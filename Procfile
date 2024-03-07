@@ -1,1 +1,1 @@
-web: gunicorn intern-manager.wsgi:application --log-file -
+web: gunicorn creditmanager.wsgi:application --log-file -
