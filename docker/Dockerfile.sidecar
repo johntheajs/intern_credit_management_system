@@ -1,0 +1,7 @@
+FROM python:3.12
+
+WORKDIR /app
+
+COPY creditmanager/logger.py .
+
+CMD ["python", "logger.py"]

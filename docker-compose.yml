@@ -1,0 +1,13 @@
+version: '3'
+services:
+  main-service:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.main
+    ports:
+      - "8000:8000"  # Adjust the port as needed for your Django application
+
+  sidecar-service:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.sidecar

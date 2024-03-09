@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 import uuid
 from django.core.validators import FileExtensionValidator
 from django.core.validators import MaxValueValidator
+import os
 
+# Create your models here.
 
 
 
@@ -28,7 +30,7 @@ class Profile(models.Model):
 class Intern(models.Model):
 
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
-    name = models.CharField(max_length=50, blank=True, null=True)
+    name = models.CharField(max_length=20, blank=True, null=True)
     reviewed = models.BooleanField(default=False)
     accepted = models.BooleanField(default=False)
     certificate = models.FileField(upload_to='certificate/', validators=[FileExtensionValidator(allowed_extensions=['pdf'])], null=True, blank=True)
@@ -38,9 +40,8 @@ class Intern(models.Model):
     submissiondate = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
-   
+    
 
     def __str__(self):
         return str(self.name)
-
 
