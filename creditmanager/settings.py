@@ -25,13 +25,15 @@ SECRET_KEY = 'django-insecure-pzu=g6m1ew-(lr(z7yrvses$mlzlpfc^+(v&ni6#t!1#hx_5zw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'intern-manager-9d829b863a79.herokuapp.com',
-]
-CSRF_TRUSTED_ORIGINS = [
-    'https://intern-manager-9d829b863a79.herokuapp.com',   
-    # Add other trusted origins as needed
-]
+# ALLOWED_HOSTS = [
+#     'intern-manager-9d829b863a79.herokuapp.com',
+# ]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://intern-manager-9d829b863a79.herokuapp.com',   
+#     # Add other trusted origins as needed
+# ]
+
+ALLOWED_HOSTS = ['3.81.136.1', 'localhost', '127.0.0.1', '[::1]', '*']
 
 
 # Application definition
