@@ -1,0 +1,28 @@
+# Use an official Python runtime as a base image
+FROM python:3.11
+
+# Set environment variables (modify as needed)
+ENV PYTHONUNBUFFERED 1
+ENV DJANGO_SETTINGS_MODULE=creditmanager.settings
+ENV POSTGRES_DB=mydatabase
+ENV POSTGRES_USER=admin
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_HOST=postgres
+
+# Set the working directory in the container
+WORKDIR /code
+
+# Copy the dependencies file to the working directory
+COPY requirements.txt /code/
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Copy the current directory contents into the container at /code/
+COPY . /code/
+
+# Expose the port that the Django app runs on
+EXPOSE 8000
+
+# Run the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
